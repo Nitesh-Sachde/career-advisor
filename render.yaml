@@ -5,18 +5,9 @@ services:
     plan: free
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
-    envVars:
-      - key: FLASK_ENV
-        value: production
     buildFilter:
       paths:
         - server/**
-
-  - type: static
-    name: react-client
-    plan: free
-    buildCommand: "npm install && npm run build"
-    staticPublishPath: "client/dist"
-    buildFilter:
-      paths:
-        - client/**
+    envVars:
+      - key: FLASK_ENV
+        value: production
