@@ -1,0 +1,10 @@
+flask
+flask-cors
+flask-mail
+scikit-learn
+langchain
+langchain-community
+google-generativeai
+python-docx
+PyPDF2
+werkzeug

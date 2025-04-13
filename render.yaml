@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: flask-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    rootDir: server
+    envVars:
+      - key: PORT
+        value: 10000
+
+  - type: web
+    name: react-frontend
+    env: static
+    plan: free
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: dist
+    rootDir: client
+    envVars:
+      - key: VITE_API_URL
+        value: https://flask-backend.onrender.com
